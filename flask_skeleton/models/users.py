@@ -1,5 +1,4 @@
 # coding: utf-8
-
 from ..ext import db
 from flask_skeleton import app
 
