@@ -1,3 +1,4 @@
+# coding: utf-8
 DEBUG = False
 SQLALCHEMY_DATABASE_URI = 'mysql://root:123456@localhost:3306/flask_skeleton_db?charset=utf8'
 SQLALCHEMY_TRACK_MODIFICATIONS = False
