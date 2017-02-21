@@ -2,11 +2,14 @@
 from flask import Flask
 from .ext import db
 
-app = Flask(__name__)
-app.config.from_object('config')
-db.init_app(app)
 
-from .cmds import initdb
-from .views import general
+def create_app(config_name):
+    app = Flask(__name__)
+    app.config.from_object(config_name)
 
-app.register_blueprint(general.mod)
+    db.init_app(app)
+
+    from .views import general
+    app.register_blueprint(general.mod)
+
+    return app
