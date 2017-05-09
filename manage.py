@@ -1,8 +1,11 @@
 # coding: utf-8
 from flask_skeleton import (create_app, db)
 from flask_skeleton.models import users
+from config import configs
+import os
 
-app = create_app('config')
+app_env = os.getenv('FLASK_ENV') or 'default'
+app = create_app(configs[app_env])
 
 
 @app.cli.command()
