@@ -8,7 +8,9 @@ class Config(object):
     DEBUG = False
     TESTING = False
 
-    SQLALCHEMY_DATABASE_URI = 'mysql://root:123456@localhost:3306/flask_skeleton_db?charset=utf8'
+    SQLALCHEMY_DATABASE_URI = ('mysql+pymysql://'
+                               'testonly:testonly@localhost:3306/'
+                               'flask_skeleton_db?charset=utf8')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 
@@ -23,12 +25,12 @@ class DevelopmentConfig(Config):
 class TestingConfig(Config):
     TESTING = True
 
+
 configs = {
     'development': DevelopmentConfig,
     'testing': TestingConfig,
     'production': ProductionConfig,
     'default': DevelopmentConfig
 }
-
 
 del os
